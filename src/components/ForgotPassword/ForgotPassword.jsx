@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/firebase.init';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
+import { Lock, Mail, Send, Lightbulb, Key, Sparkles } from 'lucide-react';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
@@ -82,7 +83,7 @@ const ForgotPassword = () => {
 				<div className="forgot-password-card">
 					<div className="forgot-password-header">
 						<div className="icon-wrapper">
-							<span className="lock-icon">🔐</span>
+							<Lock className="lock-icon" size={48} />
 						</div>
 						<h1 className="forgot-password-title">Forgot Password?</h1>
 						<p className="forgot-password-subtitle">
@@ -93,7 +94,7 @@ const ForgotPassword = () => {
 					<form onSubmit={handleResetPassword} className="forgot-password-form">
 						<div className="form-group">
 							<label htmlFor="email">
-								<span className="label-icon">📧</span>
+								<Mail className="label-icon" size={18} />
 								Email Address
 							</label>
 							<input
@@ -120,7 +121,7 @@ const ForgotPassword = () => {
 								</>
 							) : (
 								<>
-									<span className="btn-icon">📬</span>
+									<Send className="btn-icon" size={18} />
 									Send Reset Link
 								</>
 							)}
@@ -140,7 +141,7 @@ const ForgotPassword = () => {
 					</div>
 
 					<div className="info-box">
-						<span className="info-icon">💡</span>
+						<Lightbulb className="info-icon" size={20} />
 						<p className="info-text">
 							Check your spam folder if you don't see the email within a few minutes.
 						</p>
@@ -148,9 +149,9 @@ const ForgotPassword = () => {
 				</div>
 
 				<div className="illustration-section">
-					<div className="floating-icon">🔑</div>
-					<div className="floating-icon delay-1">📧</div>
-					<div className="floating-icon delay-2">✨</div>
+					<Key className="floating-icon" size={40} />
+					<Mail className="floating-icon delay-1" size={40} />
+					<Sparkles className="floating-icon delay-2" size={40} />
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, up
 import { auth } from '../firebase/firebase.init';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { Rocket, Sparkles, Lock, Shield, Target, User, Mail, Camera, Eye, EyeOff, Check, Circle, AlertCircle, Loader, CheckCircle } from 'lucide-react';
 import './Register.css';
 
 const Register = () => {
@@ -156,15 +157,15 @@ const Register = () => {
 						</p>
 						<div className="benefits-list">
 							<div className="benefit-item">
-								<span className="benefit-icon">✨</span>
+								<Sparkles className="benefit-icon" size={20} />
 								<span>Instant Access</span>
 							</div>
 							<div className="benefit-item">
-								<span className="benefit-icon">🔐</span>
+								<Shield className="benefit-icon" size={20} />
 								<span>Secure & Private</span>
 							</div>
 							<div className="benefit-item">
-								<span className="benefit-icon">🎯</span>
+								<Target className="benefit-icon" size={20} />
 								<span>Easy Setup</span>
 							</div>
 						</div>
@@ -174,14 +175,14 @@ const Register = () => {
 				<div className="register-right">
 					<div className="register-card animate__animated animate__fadeInRight">
 						<div className="register-header">
-							<div className="register-icon">🚀</div>
+							<Rocket className="register-icon" size={40} />
 							<h2>Sign Up</h2>
 							<p>Create your account to get started</p>
 						</div>
 
 						{success ? (
 							<div className="success-message">
-								<div className="success-icon">✅</div>
+								<CheckCircle className="success-icon" size={60} />
 								<h3>Account Created!</h3>
 								<p>Redirecting you to home page...</p>
 							</div>
@@ -190,7 +191,7 @@ const Register = () => {
 								<form onSubmit={handleSubmit} className="register-form">
 									<div className="form-group">
 										<label htmlFor="name">
-											<span className="label-icon">�</span>
+											<User className="label-icon" size={18} />
 											Name
 										</label>
 										<input
@@ -206,7 +207,7 @@ const Register = () => {
 
 									<div className="form-group">
 										<label htmlFor="email">
-											<span className="label-icon">📧</span>
+											<Mail className="label-icon" size={18} />
 											Email
 										</label>
 										<input
@@ -222,7 +223,7 @@ const Register = () => {
 
 									<div className="form-group">
 										<label htmlFor="photoURL">
-											<span className="label-icon">📸</span>
+											<Camera className="label-icon" size={18} />
 											Photo URL
 										</label>
 										<input
@@ -237,7 +238,7 @@ const Register = () => {
 
 									<div className="form-group">
 										<label htmlFor="password">
-											<span className="label-icon">🔒</span>
+											<Lock className="label-icon" size={18} />
 											Password
 										</label>
 										<div className="password-input-wrapper">
@@ -256,20 +257,20 @@ const Register = () => {
 												onClick={() => setShowPassword(!showPassword)}
 												aria-label="Toggle password visibility"
 											>
-												{showPassword ? '👁️' : '👁️‍🗨️'}
+												{showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
 											</button>
 										</div>
 										<div className="password-requirements">
 											<p className="requirement-title">Password must contain:</p>
 											<ul className="requirements-list">
 												<li className={password.length >= 6 ? 'valid' : ''}>
-													{password.length >= 6 ? '✓' : '○'} At least 6 characters
+													{password.length >= 6 ? <Check size={16} /> : <Circle size={16} />} At least 6 characters
 												</li>
 												<li className={/[A-Z]/.test(password) ? 'valid' : ''}>
-													{/[A-Z]/.test(password) ? '✓' : '○'} One uppercase letter
+													{/[A-Z]/.test(password) ? <Check size={16} /> : <Circle size={16} />} One uppercase letter
 												</li>
 												<li className={/[a-z]/.test(password) ? 'valid' : ''}>
-													{/[a-z]/.test(password) ? '✓' : '○'} One lowercase letter
+													{/[a-z]/.test(password) ? <Check size={16} /> : <Circle size={16} />} One lowercase letter
 												</li>
 											</ul>
 										</div>
@@ -277,7 +278,7 @@ const Register = () => {
 
 									{error && (
 										<div className="error-message">
-											<span className="error-icon">⚠️</span>
+											<AlertCircle className="error-icon" size={20} />
 											{error}
 										</div>
 									)}
@@ -288,7 +289,7 @@ const Register = () => {
 										disabled={loading}
 									>
 										{loading ? (
-											<span className="loading-spinner">⏳ Creating account...</span>
+											<span className="loading-spinner"><Loader className="spinner-icon" size={18} /> Creating account...</span>
 										) : (
 											<>
 												Register

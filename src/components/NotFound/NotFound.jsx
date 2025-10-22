@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Search, Home, Sparkles } from 'lucide-react';
 import './NotFound.css';
 
 const NotFound = () => {
@@ -8,7 +9,7 @@ const NotFound = () => {
       <div className="notfound-content">
         <div className="notfound-animation">
           <div className="notfound-number">4</div>
-          <div className="notfound-icon">🔍</div>
+          <Search className="notfound-icon" size={64} />
           <div className="notfound-number">4</div>
         </div>
         
@@ -19,11 +20,11 @@ const NotFound = () => {
         
         <div className="notfound-actions">
           <Link to="/" className="btn-home">
-            <span className="btn-icon">🏠</span>
+            <Home className="btn-icon" size={18} />
             Back to Home
           </Link>
           <Link to="/register" className="btn-register">
-            <span className="btn-icon">✨</span>
+            <Sparkles className="btn-icon" size={18} />
             Create Account
           </Link>
         </div>

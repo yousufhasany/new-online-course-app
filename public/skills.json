@@ -8,7 +8,7 @@
     "rating": 4.8,
     "slotsAvailable": 3,
     "description": "Acoustic guitar classes for complete beginners. Learn chords, strumming patterns, and play your favorite songs.",
-    "image": "https://i.postimg.cc/63qQtLHT/guitar.jpg",
+    "image": "https://i.ibb.co.com/gbgfWjfb/OIP-4.webp",
     "category": "Music"
   },
   {
@@ -20,7 +20,7 @@
     "rating": 4.6,
     "slotsAvailable": 5,
     "description": "Conversational English sessions for non-native speakers. Improve fluency and confidence in speaking.",
-    "image": "https://i.postimg.cc/DzBwMHvK/english.jpg",
+    "image": "https://i.ibb.co.com/jPpDSbY9/maxresdefault.jpg",
     "category": "Language"
   },
   {
@@ -32,7 +32,7 @@
     "rating": 4.9,
     "slotsAvailable": 8,
     "description": "Learn HTML, CSS, JavaScript, and React from scratch. Build real-world projects and portfolio.",
-    "image": "https://i.postimg.cc/L5wGKjKY/webdev.jpg",
+    "image": "https://i.ibb.co.com/Q3qHShMf/Web-Development-Bootcamp-1.jpg",
     "category": "Technology"
   },
   {
@@ -44,7 +44,7 @@
     "rating": 4.7,
     "slotsAvailable": 4,
     "description": "Master digital painting techniques using Procreate and Photoshop. Create stunning illustrations.",
-    "image": "https://i.postimg.cc/7LNQwMXC/digitalart.jpg",
+    "image": "https://i.ibb.co.com/rfZYvp5j/OIP-6.webp",
     "category": "Art"
   },
   {
@@ -56,7 +56,7 @@
     "rating": 5.0,
     "slotsAvailable": 10,
     "description": "Beginner-friendly yoga sessions with guided meditation. Improve flexibility, strength, and mindfulness.",
-    "image": "https://i.postimg.cc/KvFmJx8Y/yoga.jpg",
+    "image": "https://i.ibb.co.com/FkLXhmdc/yougapic.webp",
     "category": "Health & Fitness"
   },
   {
@@ -68,7 +68,7 @@
     "rating": 4.8,
     "slotsAvailable": 6,
     "description": "Learn professional photography techniques, composition, lighting, and photo editing with Lightroom.",
-    "image": "https://i.postimg.cc/prWLJnQ8/photography.jpg",
+    "image": "https://i.ibb.co.com/XrRFg4Lf/OIP-5.webp",
     "category": "Photography"
   },
   {
@@ -80,7 +80,7 @@
     "rating": 4.7,
     "slotsAvailable": 7,
     "description": "Interactive Spanish lessons for beginners. Learn grammar, vocabulary, and conversational skills.",
-    "image": "https://i.postimg.cc/Kz9mYxpN/spanish.jpg",
+    "image": "https://i.ibb.co.com/YCyD5KT/R-2.jpg",
     "category": "Language"
   },
   {
@@ -92,7 +92,7 @@
     "rating": 4.9,
     "slotsAvailable": 5,
     "description": "Learn to cook delicious meals and bake amazing desserts. From basics to advanced techniques.",
-    "image": "https://i.postimg.cc/XJcM9DtH/cooking.jpg",
+    "image": "https://i.ibb.co.com/yFzFJH1M/OIP-3.webp",
     "category": "Culinary"
   }
 ]

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { auth } from '../firebase/firebase.init';
 import { onAuthStateChanged } from 'firebase/auth';
 import HeroSlider from '../HeroSlider/HeroSlider';
+import { Star, Award, Calendar, Users, BookOpen, GraduationCap, Search } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -150,7 +151,7 @@ const Home = () => {
                   <p className="skill-provider">by {skill.providerName}</p>
                   <div className="skill-meta">
                     <div className="skill-rating">
-                      <span className="rating-icon">⭐</span>
+                      <Star className="rating-icon" size={16} />
                       <span className="rating-value">{skill.rating}</span>
                     </div>
                     <div className="skill-price">${skill.price}/session</div>
@@ -194,7 +195,7 @@ const Home = () => {
                   className="provider-image"
                 />
                 <div className="provider-badge">
-                  <span className="badge-star">⭐</span>
+                  <Star className="badge-star" size={14} />
                   {provider.rating}
                 </div>
               </div>
@@ -203,7 +204,7 @@ const Home = () => {
                 <p className="provider-expertise">{provider.expertise}</p>
                 <div className="provider-stats">
                   <div className="stat-item">
-                    <span className="stat-icon">👥</span>
+                    <Users className="stat-icon" size={16} />
                     <span className="stat-text">{provider.students} students</span>
                   </div>
                 </div>
@@ -223,7 +224,7 @@ const Home = () => {
         <div className="steps-container">
           <div className="step-card" data-aos="flip-left" data-aos-delay="0">
             <div className="step-number">1</div>
-            <div className="step-icon">🔍</div>
+            <Search className="step-icon" size={40} />
             <h3 className="step-title">Browse Skills</h3>
             <p className="step-description">
               Explore our wide range of skills and find the perfect course for you
@@ -234,7 +235,7 @@ const Home = () => {
           
           <div className="step-card" data-aos="flip-left" data-aos-delay="200">
             <div className="step-number">2</div>
-            <div className="step-icon">📅</div>
+            <Calendar className="step-icon" size={40} />
             <h3 className="step-title">Book a Session</h3>
             <p className="step-description">
               Choose your preferred time and schedule a session with an expert
@@ -245,7 +246,7 @@ const Home = () => {
           
           <div className="step-card" data-aos="flip-left" data-aos-delay="400">
             <div className="step-number">3</div>
-            <div className="step-icon">🎓</div>
+            <GraduationCap className="step-icon" size={40} />
             <h3 className="step-title">Start Learning</h3>
             <p className="step-description">
               Begin your learning journey and master new skills at your own pace
@@ -285,7 +286,7 @@ const Home = () => {
               
               <div className="testimonial-rating">
                 {[...Array(testimonial.rating)].map((_, index) => (
-                  <span key={index} className="star-filled">⭐</span>
+                  <Star key={index} className="star-filled" size={16} fill="currentColor" />
                 ))}
               </div>
               
@@ -293,7 +294,7 @@ const Home = () => {
               
               <div className="testimonial-footer">
                 <span className="skill-badge-testimonial">
-                  📚 {testimonial.skillTaken}
+                  <BookOpen size={16} /> {testimonial.skillTaken}
                 </span>
               </div>
             </div>

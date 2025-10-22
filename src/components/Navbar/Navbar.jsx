@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/firebase.init';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { Flame, Home as HomeIcon, BookOpen, Lock, Sparkles, LogOut } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -28,29 +29,29 @@ const Navbar = () => {
 		<nav className="navbar">
 			<div className="navbar-container">
 				<Link to="/" className="navbar-logo">
-					<span className="logo-icon">🔥</span>
+					<Flame className="logo-icon" size={24} />
 					<span className="logo-text">Hero Platform</span>
 				</Link>
 				
 				<div className="navbar-menu">
 					<Link to="/" className="nav-link">
-						<span className="nav-icon">🏠</span>
+						<HomeIcon className="nav-icon" size={18} />
 						Home
 					</Link>
 					
 					<Link to="/skills" className="nav-link">
-						<span className="nav-icon">🎯</span>
+						<BookOpen className="nav-icon" size={18} />
 						Skills
 					</Link>
 					
 					{!user ? (
 						<>
 							<Link to="/login" className="nav-link">
-								<span className="nav-icon">🔐</span>
+								<Lock className="nav-icon" size={18} />
 								Login
 							</Link>
 							<Link to="/register" className="nav-link nav-link-primary">
-								<span className="nav-icon">✨</span>
+								<Sparkles className="nav-icon" size={18} />
 								Register
 							</Link>
 						</>
@@ -74,7 +75,7 @@ const Navbar = () => {
 								<span className="user-name">{user.displayName || user.email}</span>
 							</Link>
 							<button onClick={handleSignOut} className="btn-signout">
-								<span className="nav-icon">🚪</span>
+								<LogOut className="nav-icon" size={18} />
 								Sign Out
 							</button>
 						</div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { Star, DollarSign, Calendar, UserCircle, Mail as MailIcon, User, Rocket, Check } from 'lucide-react';
 import './SkillDetails.css';
 
 const SkillDetails = () => {
@@ -113,21 +114,21 @@ const SkillDetails = () => {
 
 						<div className="quick-stats">
 							<div className="stat-box">
-								<div className="stat-icon">⭐</div>
+								<Star className="stat-icon" size={32} />
 								<div className="stat-info">
 									<div className="stat-value">{skill.rating}</div>
 									<div className="stat-label">Rating</div>
 								</div>
 							</div>
 							<div className="stat-box">
-								<div className="stat-icon">💰</div>
+								<DollarSign className="stat-icon" size={32} />
 								<div className="stat-info">
 									<div className="stat-value">${skill.price}</div>
 									<div className="stat-label">Per Session</div>
 								</div>
 							</div>
 							<div className="stat-box">
-								<div className="stat-icon">📅</div>
+								<Calendar className="stat-icon" size={32} />
 								<div className="stat-info">
 									<div className="stat-value">{skill.slotsAvailable}</div>
 									<div className="stat-label">Slots Available</div>
@@ -142,12 +143,12 @@ const SkillDetails = () => {
 						
 						<div className="provider-info-section">
 							<div className="provider-avatar">
-								<div className="avatar-icon">👨‍🏫</div>
+								<UserCircle className="avatar-icon" size={48} />
 							</div>
 							<div className="provider-details">
 								<h3 className="provider-name">{skill.providerName}</h3>
 								<a href={`mailto:${skill.providerEmail}`} className="provider-email">
-									📧 {skill.providerEmail}
+									<MailIcon size={16} /> {skill.providerEmail}
 								</a>
 							</div>
 						</div>
@@ -160,11 +161,11 @@ const SkillDetails = () => {
 						<div className="skill-features">
 							<h2 className="section-heading">What You'll Get</h2>
 							<ul className="features-list">
-								<li>✓ One-on-one personalized sessions</li>
-								<li>✓ Flexible scheduling options</li>
-								<li>✓ Expert guidance from {skill.providerName}</li>
-								<li>✓ Practical hands-on learning</li>
-								<li>✓ Progress tracking and feedback</li>
+								<li><Check size={18} /> One-on-one personalized sessions</li>
+								<li><Check size={18} /> Flexible scheduling options</li>
+								<li><Check size={18} /> Expert guidance from {skill.providerName}</li>
+								<li><Check size={18} /> Practical hands-on learning</li>
+								<li><Check size={18} /> Progress tracking and feedback</li>
 							</ul>
 						</div>
 					</div>
@@ -173,13 +174,13 @@ const SkillDetails = () => {
 				{/* Book Session Form */}
 				<div className="booking-section">
 					<div className="booking-card">
-						<h2 className="booking-title">📝 Book Your Session</h2>
+						<h2 className="booking-title">Book Your Session</h2>
 						<p className="booking-subtitle">Ready to start learning? Fill out the form below!</p>
 						
 						<form onSubmit={handleSubmit} className="booking-form">
 							<div className="form-group">
 								<label htmlFor="name" className="form-label">
-									<span className="label-icon">👤</span>
+									<User className="label-icon" size={18} />
 									Your Name
 								</label>
 								<input
@@ -196,7 +197,7 @@ const SkillDetails = () => {
 
 							<div className="form-group">
 								<label htmlFor="email" className="form-label">
-									<span className="label-icon">📧</span>
+									<MailIcon className="label-icon" size={18} />
 									Email Address
 								</label>
 								<input
@@ -212,7 +213,7 @@ const SkillDetails = () => {
 							</div>
 
 							<button type="submit" className="btn-submit">
-								<span className="btn-icon">🚀</span>
+								<Rocket className="btn-icon" size={18} />
 								Book Session Now
 							</button>
 						</form>

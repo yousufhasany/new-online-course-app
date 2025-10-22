@@ -4,6 +4,7 @@ import { onAuthStateChanged, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useSpring, animated } from 'react-spring';
+import { User, Mail, Camera, Lock, Check, Circle, Calendar, Star, Loader, Target, Shield } from 'lucide-react';
 import './Profile.css';
 
 const Profile = () => {
@@ -132,7 +133,7 @@ const Profile = () => {
 						<div className="profile-info-section">
 							<div className="info-group">
 								<label className="info-label">
-									<span className="label-icon">👤</span>
+									<User className="label-icon" size={18} />
 									Name
 								</label>
 								<div className="info-value">
@@ -142,7 +143,7 @@ const Profile = () => {
 
 							<div className="info-group">
 								<label className="info-label">
-									<span className="label-icon">📧</span>
+									<Mail className="label-icon" size={18} />
 									Email
 								</label>
 								<div className="info-value">
@@ -152,7 +153,7 @@ const Profile = () => {
 
 							<div className="info-group">
 								<label className="info-label">
-									<span className="label-icon">📸</span>
+									<Camera className="label-icon" size={18} />
 									Photo URL
 								</label>
 								<div className="info-value photo-url">
@@ -162,19 +163,19 @@ const Profile = () => {
 
 							<div className="info-group">
 								<label className="info-label">
-									<span className="label-icon">🔐</span>
+									<Lock className="label-icon" size={18} />
 									Account Status
 								</label>
 								<div className="info-value">
 									<span className="status-badge">
-										{user.emailVerified ? '✓ Verified' : '○ Not Verified'}
+										{user.emailVerified ? <><Check size={16} /> Verified</> : <><Circle size={16} /> Not Verified</>}
 									</span>
 								</div>
 							</div>
 
 							<div className="info-group">
 								<label className="info-label">
-									<span className="label-icon">📅</span>
+									<Calendar className="label-icon" size={18} />
 									Member Since
 								</label>
 								<div className="info-value">
@@ -190,7 +191,6 @@ const Profile = () => {
 								onClick={() => setEditing(true)} 
 								className="btn-update-profile"
 							>
-								<span className="btn-icon">✏️</span>
 								Update Profile
 							</button>
 						</div>
@@ -200,7 +200,7 @@ const Profile = () => {
 							<form onSubmit={handleUpdateProfile} className="edit-form">
 								<div className="form-group">
 									<label htmlFor="name">
-										<span className="label-icon">👤</span>
+										<User className="label-icon" size={18} />
 										Name
 									</label>
 									<input
@@ -216,7 +216,7 @@ const Profile = () => {
 
 								<div className="form-group">
 									<label htmlFor="photoURL">
-										<span className="label-icon">📸</span>
+										<Camera className="label-icon" size={18} />
 										Photo URL
 									</label>
 									<input
@@ -231,7 +231,7 @@ const Profile = () => {
 
 								<div className="form-group">
 									<label className="info-label-disabled">
-										<span className="label-icon">📧</span>
+										<Mail className="label-icon" size={18} />
 										Email (Cannot be changed)
 									</label>
 									<div className="info-value-disabled">
@@ -254,10 +254,9 @@ const Profile = () => {
 										disabled={updating}
 									>
 										{updating ? (
-											<span>⏳ Saving...</span>
+											<span><Loader className="spinner-icon" size={18} /> Saving...</span>
 										) : (
 											<>
-												<span className="btn-icon">💾</span>
 												Save Changes
 											</>
 										)}
@@ -270,7 +269,7 @@ const Profile = () => {
 
 				<div className="profile-stats-grid">
 					<div className="stat-card" data-aos="zoom-in" data-aos-delay="0">
-						<div className="stat-icon">🎯</div>
+						<Target className="stat-icon" size={32} />
 						<div className="stat-info">
 							<div className="stat-value">Active</div>
 							<div className="stat-label">Account Status</div>
@@ -278,7 +277,7 @@ const Profile = () => {
 					</div>
 					
 					<div className="stat-card" data-aos="zoom-in" data-aos-delay="100">
-						<div className="stat-icon">🔒</div>
+						<Shield className="stat-icon" size={32} />
 						<div className="stat-info">
 							<div className="stat-value">Secure</div>
 							<div className="stat-label">Authentication</div>
@@ -286,7 +285,7 @@ const Profile = () => {
 					</div>
 					
 					<div className="stat-card" data-aos="zoom-in" data-aos-delay="200">
-						<div className="stat-icon">⭐</div>
+						<Star className="stat-icon" size={32} />
 						<div className="stat-info">
 							<div className="stat-value">Member</div>
 							<div className="stat-label">User Type</div>

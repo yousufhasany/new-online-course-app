@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPa
 import { auth } from '../firebase/firebase.init';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { Lock, Mail, Eye, EyeOff, AlertCircle, Loader } from 'lucide-react';
 import './Login.css';
 
 const Login = () => {
@@ -98,7 +99,7 @@ const Login = () => {
 			<div className="login-content">
 				<div className="login-card animate__animated animate__fadeInUp">
 					<div className="login-header">
-						<div className="login-icon">🔐</div>
+						<div className="login-icon"><Lock size={40} /></div>
 						<h2>Login</h2>
 						<p>Sign in to access your account</p>
 					</div>
@@ -106,7 +107,7 @@ const Login = () => {
 					<form onSubmit={handleSubmit} className="login-form">
 						<div className="form-group">
 							<label htmlFor="email">
-								<span className="label-icon">📧</span>
+								<Mail className="label-icon" size={18} />
 								Email Address
 							</label>
 							<input
@@ -122,7 +123,7 @@ const Login = () => {
 
 						<div className="form-group">
 							<label htmlFor="password">
-								<span className="label-icon">🔒</span>
+								<Lock className="label-icon" size={18} />
 								Password
 							</label>
 							<div className="password-input-wrapper">
@@ -141,7 +142,7 @@ const Login = () => {
 									onClick={() => setShowPassword(!showPassword)}
 									aria-label="Toggle password visibility"
 								>
-									{showPassword ? '👁️' : '👁️‍🗨️'}
+									{showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
 								</button>
 							</div>
 						</div>
@@ -158,7 +159,7 @@ const Login = () => {
 
 						{error && (
 							<div className="error-message">
-								<span className="error-icon">⚠️</span>
+								<AlertCircle className="error-icon" size={20} />
 								{error}
 							</div>
 						)}
@@ -169,7 +170,7 @@ const Login = () => {
 							disabled={loading}
 						>
 							{loading ? (
-								<span className="loading-spinner">⏳ Logging in...</span>
+								<span className="loading-spinner"><Loader className="spinner-icon" size={18} /> Logging in...</span>
 							) : (
 								<>
 									Login

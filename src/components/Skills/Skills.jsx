@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Loader, User, Star, Calendar, Search } from 'lucide-react';
 import './Skills.css';
 
 const Skills = () => {
@@ -29,7 +30,7 @@ const Skills = () => {
   if (loading) {
     return (
       <div className="skills-loading">
-        <div className="loading-spinner-small">⏳</div>
+        <Loader className="loading-spinner-small" size={32} />
         <p>Loading skills...</p>
       </div>
     );
@@ -77,7 +78,7 @@ const Skills = () => {
               <h3 className="skill-name">{skill.skillName}</h3>
               
               <div className="skill-provider">
-                <span className="provider-icon">👤</span>
+                <User className="provider-icon" size={20} />
                 <div>
                   <p className="provider-name">{skill.providerName}</p>
                   <p className="provider-email">{skill.providerEmail}</p>
@@ -88,11 +89,11 @@ const Skills = () => {
 
               <div className="skill-meta">
                 <div className="meta-item">
-                  <span className="meta-icon">⭐</span>
+                  <Star className="meta-icon" size={16} />
                   <span className="meta-value">{skill.rating}</span>
                 </div>
                 <div className="meta-item">
-                  <span className="meta-icon">📅</span>
+                  <Calendar className="meta-icon" size={16} />
                   <span className="meta-value">{skill.slotsAvailable} slots</span>
                 </div>
               </div>
@@ -114,7 +115,7 @@ const Skills = () => {
 
       {filteredSkills.length === 0 && (
         <div className="no-skills">
-          <div className="no-skills-icon">🔍</div>
+          <Search className="no-skills-icon" size={64} />
           <h3>No skills found</h3>
           <p>Try selecting a different category</p>
         </div>
