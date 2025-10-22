@@ -1,0 +1,98 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners. Learn chords, strumming patterns, and play your favorite songs.",
+    "image": "https://i.postimg.cc/63qQtLHT/guitar.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers. Improve fluency and confidence in speaking.",
+    "image": "https://i.postimg.cc/DzBwMHvK/english.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Web Development Bootcamp",
+    "providerName": "John Developer",
+    "providerEmail": "john@skillswap.com",
+    "price": 50,
+    "rating": 4.9,
+    "slotsAvailable": 8,
+    "description": "Learn HTML, CSS, JavaScript, and React from scratch. Build real-world projects and portfolio.",
+    "image": "https://i.postimg.cc/L5wGKjKY/webdev.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Digital Art & Illustration",
+    "providerName": "Emily Chen",
+    "providerEmail": "emily@skillswap.com",
+    "price": 35,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Master digital painting techniques using Procreate and Photoshop. Create stunning illustrations.",
+    "image": "https://i.postimg.cc/7LNQwMXC/digitalart.jpg",
+    "category": "Art"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Yoga & Meditation",
+    "providerName": "Priya Sharma",
+    "providerEmail": "priya@skillswap.com",
+    "price": 15,
+    "rating": 5.0,
+    "slotsAvailable": 10,
+    "description": "Beginner-friendly yoga sessions with guided meditation. Improve flexibility, strength, and mindfulness.",
+    "image": "https://i.postimg.cc/KvFmJx8Y/yoga.jpg",
+    "category": "Health & Fitness"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Photography Masterclass",
+    "providerName": "Michael Brown",
+    "providerEmail": "michael@skillswap.com",
+    "price": 40,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Learn professional photography techniques, composition, lighting, and photo editing with Lightroom.",
+    "image": "https://i.postimg.cc/prWLJnQ8/photography.jpg",
+    "category": "Photography"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Spanish Language Course",
+    "providerName": "Carlos Rodriguez",
+    "providerEmail": "carlos@skillswap.com",
+    "price": 25,
+    "rating": 4.7,
+    "slotsAvailable": 7,
+    "description": "Interactive Spanish lessons for beginners. Learn grammar, vocabulary, and conversational skills.",
+    "image": "https://i.postimg.cc/Kz9mYxpN/spanish.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Cooking & Baking Classes",
+    "providerName": "Chef Maria Lopez",
+    "providerEmail": "maria@skillswap.com",
+    "price": 30,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Learn to cook delicious meals and bake amazing desserts. From basics to advanced techniques.",
+    "image": "https://i.postimg.cc/XJcM9DtH/cooking.jpg",
+    "category": "Culinary"
+  }
+]
