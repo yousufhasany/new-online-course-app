@@ -473,13 +473,49 @@ const Profile = () => {
 									>
 										<X size={16} />
 									</button>
-									<div className="skill-icon" style={{ color: skill.color }}>
-										<IconComponent size={32} />
+									
+									<div className="skill-header">
+										<div className="skill-icon-wrapper" style={{ background: `${skill.color}15`, borderColor: skill.color }}>
+											<div className="skill-icon" style={{ color: skill.color }}>
+												<IconComponent size={28} />
+											</div>
+										</div>
+										<span className="skill-level-badge" style={{ 
+											background: `${skill.color}20`, 
+											borderColor: skill.color, 
+											color: skill.color 
+										}}>
+											{skill.level}
+										</span>
 									</div>
-									<h3 className="skill-name">{skill.name}</h3>
-									<span className="skill-level" style={{ borderColor: skill.color, color: skill.color }}>
-										{skill.level}
-									</span>
+
+									<div className="skill-details">
+										<h3 className="skill-name">{skill.name}</h3>
+										<div className="skill-info-grid">
+											<div className="skill-info-item">
+												<span className="info-label">Proficiency</span>
+												<div className="progress-bar">
+													<div 
+														className="progress-fill" 
+														style={{ 
+															width: skill.level === 'Expert' ? '100%' : 
+																	 skill.level === 'Advanced' ? '75%' : 
+																	 skill.level === 'Intermediate' ? '50%' : '25%',
+															background: skill.color
+														}}
+													></div>
+												</div>
+											</div>
+											<div className="skill-info-item">
+												<span className="info-label">Level</span>
+												<span className="info-value" style={{ color: skill.color }}>
+													{skill.level === 'Expert' ? '⭐⭐⭐⭐' : 
+													 skill.level === 'Advanced' ? '⭐⭐⭐' : 
+													 skill.level === 'Intermediate' ? '⭐⭐' : '⭐'}
+												</span>
+											</div>
+										</div>
+									</div>
 								</div>
 							);
 						})}
