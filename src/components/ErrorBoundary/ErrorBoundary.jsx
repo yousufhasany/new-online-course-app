@@ -32,7 +32,7 @@ class ErrorBoundary extends React.Component {
             Oops! Something went wrong
           </h1>
           <p style={{ color: 'var(--text-gray)', marginBottom: '2rem' }}>
-            We're sorry for the inconvenience. Please try refreshing the page.
+            We're sorry for the inconvenience. Please try again later or refreshing the page.
           </p>
           <button
             onClick={() => window.location.href = '/'}
