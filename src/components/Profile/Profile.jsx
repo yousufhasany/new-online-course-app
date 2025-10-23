@@ -123,8 +123,7 @@ const Profile = () => {
 			
 			<animated.div className="profile-content" style={fadeIn}>
 				<div className="profile-header-banner">
-					<div className="banner-gradient"></div>
-					<h1 className="profile-page-title animate__animated animate__fadeInDown">My Profile</h1>
+					<h1 className="profile-page-title">✨ My Profile</h1>
 				</div>
 
 				<animated.div className="profile-card" style={scaleIn}>
