@@ -43,18 +43,41 @@ const Profile = () => {
 		return () => unsubscribe();
 	}, [navigate]);
 
+	// Update form fields when user changes
+	useEffect(() => {
+		if (user) {
+			setName(user.displayName || '');
+			setPhotoURL(user.photoURL || '');
+		}
+	}, [user]);
+
 	const handleUpdateProfile = async (e) => {
 		e.preventDefault();
+		
+		if (!name.trim()) {
+			toast.error('❌ Name cannot be empty!', {
+				duration: 3000,
+				position: 'top-center'
+			});
+			return;
+		}
+
 		setUpdating(true);
 
 		try {
 			await updateProfile(auth.currentUser, {
-				displayName: name,
-				photoURL: photoURL || null
+				displayName: name.trim(),
+				photoURL: photoURL.trim() || null
 			});
 
-			// Update local state
-			setUser({ ...user, displayName: name, photoURL: photoURL });
+			// Force refresh the user object
+			const updatedUser = auth.currentUser;
+			setUser({
+				...updatedUser,
+				displayName: name.trim(),
+				photoURL: photoURL.trim() || null
+			});
+			
 			setEditing(false);
 
 			toast.success('✅ Profile updated successfully!', {
@@ -69,6 +92,7 @@ const Profile = () => {
 				}
 			});
 		} catch (err) {
+			console.error('Profile update error:', err);
 			toast.error('❌ Failed to update profile: ' + err.message, {
 				duration: 4000,
 				position: 'top-center'
@@ -188,15 +212,19 @@ const Profile = () => {
 							</div>
 
 							<button 
-								onClick={() => setEditing(true)} 
+								type="button"
+								onClick={() => {
+									console.log('Edit button clicked');
+									setEditing(true);
+								}} 
 								className="btn-update-profile"
 							>
-								Update Profile
+								✏️ Edit Profile
 							</button>
 						</div>
 					) : (
 						<div className="profile-edit-section">
-							<h3 className="edit-title">Update Your Profile</h3>
+							<h3 className="edit-title">✏️ Update Your Profile</h3>
 							<form onSubmit={handleUpdateProfile} className="edit-form">
 								<div className="form-group">
 									<label htmlFor="name">
@@ -208,9 +236,11 @@ const Profile = () => {
 										type="text"
 										value={name}
 										onChange={(e) => setName(e.target.value)}
-										placeholder="Your full name"
+										placeholder="Enter your full name"
 										className="form-input"
 										required
+										autoFocus
+										disabled={updating}
 									/>
 								</div>
 
@@ -224,9 +254,13 @@ const Profile = () => {
 										type="url"
 										value={photoURL}
 										onChange={(e) => setPhotoURL(e.target.value)}
-										placeholder="https://i.ibb.co.com/GQzVRzxt/Yousuf-np.png"
+										placeholder="https://example.com/your-photo.jpg"
 										className="form-input"
+										disabled={updating}
 									/>
+									<small className="input-hint">
+										💡 Tip: Upload image to <a href="https://imgbb.com" target="_blank" rel="noopener noreferrer">ImgBB</a> and paste the URL here
+									</small>
 								</div>
 
 								<div className="form-group">
@@ -246,7 +280,7 @@ const Profile = () => {
 										className="btn-cancel"
 										disabled={updating}
 									>
-										Cancel
+										❌ Cancel
 									</button>
 									<button 
 										type="submit" 
@@ -256,9 +290,7 @@ const Profile = () => {
 										{updating ? (
 											<span><Loader className="spinner-icon" size={18} /> Saving...</span>
 										) : (
-											<>
-												Save Changes
-											</>
+											<span>💾 Save Changes</span>
 										)}
 									</button>
 								</div>
