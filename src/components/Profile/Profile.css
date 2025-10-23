@@ -475,6 +475,190 @@
 	font-weight: 600;
 }
 
+/* Skills Section */
+.skills-section {
+	margin-top: 3rem;
+	padding: 2.5rem;
+	background: rgba(22, 33, 62, 0.8);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(102, 126, 234, 0.3);
+	border-radius: 24px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.skills-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2rem;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.skills-title {
+	font-size: 2rem;
+	font-weight: 800;
+	background: linear-gradient(135deg, #ff8c00, #ff6347);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.title-icon {
+	color: #ff8c00;
+	-webkit-text-fill-color: initial;
+}
+
+.btn-add-skill {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	background: linear-gradient(135deg, #ff8c00, #ff6347);
+	color: white;
+	border: none;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.btn-add-skill:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+}
+
+.add-skill-form {
+	background: rgba(102, 126, 234, 0.05);
+	border: 1px solid rgba(102, 126, 234, 0.2);
+	border-radius: 16px;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}
+
+.form-row {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 0.5fr;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.color-input {
+	height: 45px;
+	cursor: pointer;
+	padding: 0.25rem;
+}
+
+.btn-submit-skill {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 100%;
+	padding: 0.875rem;
+	background: linear-gradient(135deg, #ff8c00, #ff6347);
+	color: white;
+	border: none;
+	border-radius: 12px;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.btn-submit-skill:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+}
+
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 1.5rem;
+}
+
+.skill-card {
+	position: relative;
+	background: rgba(102, 126, 234, 0.05);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(102, 126, 234, 0.3);
+	border-radius: 16px;
+	padding: 2rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	transition: all 0.3s ease;
+	text-align: center;
+}
+
+.skill-card:hover {
+	transform: translateY(-5px);
+	border-color: rgba(255, 140, 0, 0.5);
+	box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+}
+
+.skill-delete-btn {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	background: rgba(239, 68, 68, 0.2);
+	border: 1px solid rgba(239, 68, 68, 0.3);
+	color: #ef4444;
+	border-radius: 8px;
+	width: 28px;
+	height: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	opacity: 0;
+	transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-delete-btn {
+	opacity: 1;
+}
+
+.skill-delete-btn:hover {
+	background: rgba(239, 68, 68, 0.4);
+	transform: scale(1.1);
+}
+
+.skill-icon {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.05);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+}
+
+.skill-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--text-light);
+	margin: 0;
+}
+
+.skill-level {
+	font-size: 0.875rem;
+	font-weight: 600;
+	padding: 0.375rem 0.875rem;
+	border: 2px solid;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.05);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
 @media (max-width: 768px) {
 	.profile-container {
 		padding: 1rem;
@@ -503,5 +687,31 @@
 
 	.profile-stats-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.stat-card {
+		padding: 1.5rem;
+	}
+
+	/* Skills Mobile */
+	.skills-section {
+		padding: 1.5rem;
+	}
+
+	.skills-title {
+		font-size: 1.5rem;
+	}
+
+	.form-row {
+		grid-template-columns: 1fr;
+	}
+
+	.skills-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.btn-add-skill {
+		width: 100%;
+		justify-content: center;
 	}
 }

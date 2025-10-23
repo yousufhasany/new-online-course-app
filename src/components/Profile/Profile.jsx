@@ -4,7 +4,7 @@ import { onAuthStateChanged, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { useSpring, animated } from 'react-spring';
-import { User, Mail, Camera, Lock, Check, Circle, Calendar, Star, Loader, Target, Shield } from 'lucide-react';
+import { User, Mail, Camera, Lock, Check, Circle, Calendar, Star, Loader, Target, Shield, Code, Palette, Database, Globe, Cpu, Zap, Plus, X } from 'lucide-react';
 import './Profile.css';
 
 const Profile = () => {
@@ -14,6 +14,16 @@ const Profile = () => {
 	const [name, setName] = useState('');
 	const [photoURL, setPhotoURL] = useState('');
 	const [updating, setUpdating] = useState(false);
+	const [skills, setSkills] = useState([
+		{ id: 1, name: 'React', icon: 'Code', level: 'Expert', color: '#61dafb' },
+		{ id: 2, name: 'JavaScript', icon: 'Zap', level: 'Expert', color: '#f7df1e' },
+		{ id: 3, name: 'Node.js', icon: 'Cpu', level: 'Advanced', color: '#68a063' },
+		{ id: 4, name: 'Firebase', icon: 'Database', level: 'Advanced', color: '#ffca28' },
+		{ id: 5, name: 'CSS/Tailwind', icon: 'Palette', level: 'Expert', color: '#38bdf8' },
+		{ id: 6, name: 'Web Development', icon: 'Globe', level: 'Expert', color: '#ff6347' }
+	]);
+	const [showAddSkill, setShowAddSkill] = useState(false);
+	const [newSkill, setNewSkill] = useState({ name: '', level: 'Beginner', icon: 'Code', color: '#ff8c00' });
 	const navigate = useNavigate();
 
 	// React-Spring animations
@@ -106,6 +116,44 @@ const Profile = () => {
 		setName(user.displayName || '');
 		setPhotoURL(user.photoURL || '');
 		setEditing(false);
+	};
+
+	const getIconComponent = (iconName) => {
+		const icons = {
+			Code: Code,
+			Palette: Palette,
+			Database: Database,
+			Globe: Globe,
+			Cpu: Cpu,
+			Zap: Zap
+		};
+		return icons[iconName] || Code;
+	};
+
+	const handleAddSkill = (e) => {
+		e.preventDefault();
+		if (!newSkill.name.trim()) {
+			toast.error('❌ Skill name cannot be empty!');
+			return;
+		}
+
+		const skillToAdd = {
+			id: Date.now(),
+			name: newSkill.name.trim(),
+			level: newSkill.level,
+			icon: newSkill.icon,
+			color: newSkill.color
+		};
+
+		setSkills([...skills, skillToAdd]);
+		setNewSkill({ name: '', level: 'Beginner', icon: 'Code', color: '#ff8c00' });
+		setShowAddSkill(false);
+		toast.success('✅ Skill added successfully!');
+	};
+
+	const handleDeleteSkill = (id) => {
+		setSkills(skills.filter(skill => skill.id !== id));
+		toast.success('🗑️ Skill removed!');
 	};
 
 	if (loading) {
@@ -323,6 +371,120 @@ const Profile = () => {
 						</div>
 					</div>
 				</div>
+
+				{/* Skills Section */}
+				<animated.div className="skills-section" style={fadeIn}>
+					<div className="skills-header">
+						<h2 className="skills-title">
+							<Code size={28} className="title-icon" />
+							My Skills
+						</h2>
+						<button 
+							className="btn-add-skill"
+							onClick={() => setShowAddSkill(!showAddSkill)}
+						>
+							{showAddSkill ? <X size={20} /> : <Plus size={20} />}
+							{showAddSkill ? 'Cancel' : 'Add Skill'}
+						</button>
+					</div>
+
+					{showAddSkill && (
+						<div className="add-skill-form">
+							<form onSubmit={handleAddSkill}>
+								<div className="form-row">
+									<div className="form-group">
+										<label htmlFor="skillName">Skill Name</label>
+										<input
+											id="skillName"
+											type="text"
+											value={newSkill.name}
+											onChange={(e) => setNewSkill({...newSkill, name: e.target.value})}
+											placeholder="e.g., Python, Design, Marketing"
+											className="form-input"
+											required
+										/>
+									</div>
+
+									<div className="form-group">
+										<label htmlFor="skillLevel">Level</label>
+										<select
+											id="skillLevel"
+											value={newSkill.level}
+											onChange={(e) => setNewSkill({...newSkill, level: e.target.value})}
+											className="form-input"
+										>
+											<option value="Beginner">Beginner</option>
+											<option value="Intermediate">Intermediate</option>
+											<option value="Advanced">Advanced</option>
+											<option value="Expert">Expert</option>
+										</select>
+									</div>
+
+									<div className="form-group">
+										<label htmlFor="skillIcon">Icon</label>
+										<select
+											id="skillIcon"
+											value={newSkill.icon}
+											onChange={(e) => setNewSkill({...newSkill, icon: e.target.value})}
+											className="form-input"
+										>
+											<option value="Code">Code</option>
+											<option value="Palette">Palette</option>
+											<option value="Database">Database</option>
+											<option value="Globe">Globe</option>
+											<option value="Cpu">Cpu</option>
+											<option value="Zap">Zap</option>
+										</select>
+									</div>
+
+									<div className="form-group">
+										<label htmlFor="skillColor">Color</label>
+										<input
+											id="skillColor"
+											type="color"
+											value={newSkill.color}
+											onChange={(e) => setNewSkill({...newSkill, color: e.target.value})}
+											className="form-input color-input"
+										/>
+									</div>
+								</div>
+
+								<button type="submit" className="btn-submit-skill">
+									<Plus size={18} /> Add Skill
+								</button>
+							</form>
+						</div>
+					)}
+
+					<div className="skills-grid">
+						{skills.map((skill, index) => {
+							const IconComponent = getIconComponent(skill.icon);
+							return (
+								<div 
+									key={skill.id} 
+									className="skill-card"
+									data-aos="fade-up"
+									data-aos-delay={index * 50}
+								>
+									<button 
+										className="skill-delete-btn"
+										onClick={() => handleDeleteSkill(skill.id)}
+										title="Remove skill"
+									>
+										<X size={16} />
+									</button>
+									<div className="skill-icon" style={{ color: skill.color }}>
+										<IconComponent size={32} />
+									</div>
+									<h3 className="skill-name">{skill.name}</h3>
+									<span className="skill-level" style={{ borderColor: skill.color, color: skill.color }}>
+										{skill.level}
+									</span>
+								</div>
+							);
+						})}
+					</div>
+				</animated.div>
 			</animated.div>
 		</div>
 	);
